@@ -1,0 +1,36 @@
+version: 0.0
+os: windows
+files:
+  - source: \index.html
+    destination: c:\inetpub\wwwroot\webtest
+  - source: \img\cloneWhite.svg
+    destination: c:\inetpub\wwwroot\webtest\img
+  - source: \img\deployWhite.svg
+    destination: c:\inetpub\wwwroot\webtest\img
+  - source: \img\lightbulbWhite.svg
+    destination: c:\inetpub\wwwroot\webtest\img
+  - source: \img\stackWhite.svg
+    destination: c:\inetpub\wwwroot\webtest\img
+  - source: \img\successCloudNew.svg
+    destination: c:\inetpub\wwwroot\webtest\img
+  - source: \img\tweetThis.svg
+    destination: c:\inetpub\wwwroot\webtest\img
+  - source: \fonts\segoeuil.ttf
+    destination: c:\inetpub\wwwroot\webtest\fonts
+  - source: \css\site.css
+    destination: c:\inetpub\wwwroot\webtest\css
+  - source: \deletewebsite.ps1
+    destination: c:\temp
+  - source: \installwebsite.ps1
+    destination: c:\temp
+  - source: \deletewebsite.bat
+    destination: c:\temp
+  - source: \installwebsite.bat
+    destination: c:\temp
+hooks:
+  BeforeInstall:
+    - location: \deletewebsite.bat
+      timeout: 180
+  AfterInstall:
+    - location: \installwebsite.bat
+      timeout: 180
